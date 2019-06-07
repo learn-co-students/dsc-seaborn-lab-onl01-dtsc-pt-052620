@@ -139,6 +139,12 @@ If we want to get even more ambitious, we can create mutiple subplots by using t
 
 Run the cell below to see an example, and see if you can figure out how the code works. 
 
+
+```python
+sns.lmplot(x="total_bill", y="tip", hue="smoker",
+           col="time", row="sex", data=tips)
+```
+
 ## Summary
 
 In this lab, we explored the **_Seaborn_** library, and explored the sorts of data visualizations we can create with it!
