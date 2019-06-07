@@ -22,7 +22,7 @@ Let's get started by importing some things and creating a toy dataset to work wi
 In the cell below: 
 
 * Import `numpy` and set the standard alias of `np`
-* Import `Seaborn` and set the standard alias of `sns`
+* Import `seaborn` and set the standard alias of `sns`
 * Set `%matplotlib inline` so that our visualizations appear in the notebook, and not as separate files
 
 
@@ -338,7 +338,7 @@ In the cell below:
     * `x='total_bill'`
     * `y='tip'`
     * `hue='smoker'`
-    * `data='tips'`
+    * `data= tips`
 
 
 ```python
