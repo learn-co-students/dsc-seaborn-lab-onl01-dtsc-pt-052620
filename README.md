@@ -22,7 +22,7 @@ Let's get started by importing some things and creating a toy dataset to work wi
 In the cell below: 
 
 * Import `numpy` and set the standard alias of `np`
-* Import `Seaborn` and set the standard alias of `sns`
+* Import `seaborn` and set the standard alias of `sns`
 * Set `%matplotlib inline` so that our visualizations appear in the notebook, and not as separate files
 
 Great! Now, run the cell below to create a sample dataset. 
@@ -131,7 +131,7 @@ In the cell below:
     * `x='total_bill'`
     * `y='tip'`
     * `hue='smoker'`
-    * `data='tips'`
+    * `data= tips`
 
 Very cool! That visualization contains _a lot_ of information, and it does it in a way that is easy to interpret and understand. Best of all, it didn't take much work on our part--all we had to do was tell the function the name of the column to use for the x axis, the name of the column to use for the y axis, and the name of the variable to condition on, as denoted by the two different colors. 
 
