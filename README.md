@@ -25,10 +25,30 @@ In the cell below:
 * Import `seaborn` and set the standard alias of `sns`
 * Set `%matplotlib inline` so that our visualizations appear in the notebook, and not as separate files
 
+
+```python
+
+```
+
+
+```python
+# __SOLUTION__ 
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+%matplotlib inline
+```
+
 Great! Now, run the cell below to create a sample dataset. 
 
 
 ```python
+data = np.random.normal(size=(20, 10)) + np.arange(10) / 2
+```
+
+
+```python
+# __SOLUTION__ 
 data = np.random.normal(size=(20, 10)) + np.arange(10) / 2
 ```
 
@@ -44,6 +64,17 @@ In the cell below:
 ```python
 boxplot = None
 ```
+
+
+```python
+# __SOLUTION__ 
+boxplot = sns.boxplot(data=data)
+
+```
+
+
+![png](index_files/index_8_0.png)
+
 
 That's a nice looking visualization, for only a single line of code! However, it's missing axis labels and a title. Let's fix that. 
 
@@ -61,6 +92,26 @@ boxplot = None
 
 ```
 
+
+```python
+# __SOLUTION__ 
+boxplot = sns.boxplot(data=data)
+boxplot.set(xlabel = "X Label", ylabel='Y Label', title='Example Boxplot')
+```
+
+
+
+
+    [Text(0, 0.5, 'Y Label'),
+     Text(0.5, 0, 'X Label'),
+     Text(0.5, 1.0, 'Example Boxplot')]
+
+
+
+
+![png](index_files/index_11_1.png)
+
+
 That wasn't too bad! Note that we can also use **_Method Chaining_** to set all the label and title information by combining the two lines in the cell above!
 
 In the cell below:
@@ -68,6 +119,30 @@ In the cell below:
 * Recreate the labeled boxplot by calling `.set()` and passing in the appropriate parameter values immediately after calling `sns.boxplot(data=data)` to create the visualization. 
 
 **_NOTE_**: For this visualization, you do not need to store the object in a variable. Just call the methods.
+
+
+```python
+
+```
+
+
+```python
+# __SOLUTION__ 
+sns.boxplot(data=data).set(xlabel = "X Label", ylabel='Y Label', title='Example Boxplot')
+```
+
+
+
+
+    [Text(0, 0.5, 'Y Label'),
+     Text(0.5, 0, 'X Label'),
+     Text(0.5, 1.0, 'Example Boxplot')]
+
+
+
+
+![png](index_files/index_14_1.png)
+
 
 Great! As you can see, Seaborn is a pretty easy library to work with. It also has very detailed and easy-to-follow documentation, complete with a ton of examples and tutorials. If you're ever unsure of how to build something, don't be afraid to look at the [Seaborn Documentation](https://seaborn.pydata.org/), or Google!
 
@@ -80,6 +155,31 @@ In the cell below:
 * Call Seaborn's `set_style()` method and pass in the string `'darkgrid'`. 
 * Recreate the labeled boxplot that we made in the cell above. 
 
+
+```python
+
+```
+
+
+```python
+# __SOLUTION__ 
+sns.set_style('darkgrid')
+sns.boxplot(data=data).set(xlabel = "X Label", ylabel='Y Label', title='Example Boxplot')
+```
+
+
+
+
+    [Text(0, 0.5, 'Y Label'),
+     Text(0.5, 0, 'X Label'),
+     Text(0.5, 1.0, 'Example Boxplot')]
+
+
+
+
+![png](index_files/index_17_1.png)
+
+
 That's much easier to read! There are several different styles that we can choose from. To see examples of the different styles we can use, check out the [documentation](https://seaborn.pydata.org/tutorial/aesthetics.html) for controlling figure aesthetics.
 
 Before we move on, let's make one more change. While the plot looks much better now, the size of the text for ticks and axis labels so small that it would be hard for people to read it unless they're right in front of the monitor--that's a problem, if the visualizations are going to be used in something like a tech talk or presentation!
@@ -91,6 +191,31 @@ In the cell below:
 * Call Seaborn's `set_context()` method and pass in the string `'poster'`.
 * Recreate the labeled boxplot that we made in the cell above.
 
+
+```python
+
+```
+
+
+```python
+# __SOLUTION__ 
+sns.set_context('poster')
+sns.boxplot(data=data).set(xlabel = "X Label", ylabel='Y Label', title='Example Boxplot')
+```
+
+
+
+
+    [Text(0, 0.5, 'Y Label'),
+     Text(0.5, 0, 'X Label'),
+     Text(0.5, 1.0, 'Example Boxplot')]
+
+
+
+
+![png](index_files/index_20_1.png)
+
+
 Much better! That's much more readable. From smallest to largest, the different context settings we can use are `'paper'`, `'notebook'`, `'talk'`, and `'poster'`. 
 
 ### A  Quick Note on Contexts and Styles
@@ -100,6 +225,17 @@ When you call `set_context` or `set_style`, you're setting a global parameter th
 Let's change our context back to `'notebook'` so that the next visualizations we create don't look too big. 
 
 In the cell below, change the context back to `'notebook'`.
+
+
+```python
+
+```
+
+
+```python
+# __SOLUTION__ 
+sns.set_context('notebook')
+```
 
 ## More Advanced Visualizations
 
@@ -113,6 +249,45 @@ For this visualization, we'll need a more advanced dataset than the example we c
 
 Do this now in the cell below.
 
+
+```python
+
+```
+
+
+```python
+# __SOLUTION__ 
+sns.get_dataset_names()
+```
+
+    C:\Users\medio\AppData\Local\Continuum\anaconda3\lib\site-packages\seaborn\utils.py:376: UserWarning: No parser was explicitly specified, so I'm using the best available HTML parser for this system ("lxml"). This usually isn't a problem, but if you run this code on another system, or in a different virtual environment, it may use a different parser and behave differently.
+    
+    The code that caused this warning is on line 376 of the file C:\Users\medio\AppData\Local\Continuum\anaconda3\lib\site-packages\seaborn\utils.py. To get rid of this warning, pass the additional argument 'features="lxml"' to the BeautifulSoup constructor.
+    
+      gh_list = BeautifulSoup(http)
+
+
+
+
+
+    ['anscombe',
+     'attention',
+     'brain_networks',
+     'car_crashes',
+     'diamonds',
+     'dots',
+     'exercise',
+     'flights',
+     'fmri',
+     'gammas',
+     'iris',
+     'mpg',
+     'planets',
+     'tips',
+     'titanic']
+
+
+
 Great! For the reamainder of this notebook, we'll use the `'tips'` dataset. We can get this dataset by calling Seaborn's `load_dataset()` method and passing in the string `'tips'`. Seaborn is even considerate enough to return the dataset as a pandas DataFrame!
 
 In the cell below, get the tips dataset and store it in the variable `tips`. Then, display the head of the DataFrame so we can see what we're working with. 
@@ -123,6 +298,100 @@ tips = None
 
 ```
 
+
+```python
+# __SOLUTION__ 
+tips = sns.load_dataset('tips')
+tips.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>total_bill</th>
+      <th>tip</th>
+      <th>sex</th>
+      <th>smoker</th>
+      <th>day</th>
+      <th>time</th>
+      <th>size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>16.99</td>
+      <td>1.01</td>
+      <td>Female</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10.34</td>
+      <td>1.66</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>21.01</td>
+      <td>3.50</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>23.68</td>
+      <td>3.31</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>24.59</td>
+      <td>3.61</td>
+      <td>Female</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
 Now that we have our dataset, we can create our regression plot. There are several kinds of regression plots we can use. For this example, we'll use the `lmplot` function. 
 
 In the cell below: 
@@ -132,6 +401,21 @@ In the cell below:
     * `y='tip'`
     * `hue='smoker'`
     * `data= tips`
+
+
+```python
+
+```
+
+
+```python
+# __SOLUTION__ 
+sns.lmplot(x="total_bill", y="tip", hue="smoker", data=tips);
+```
+
+
+![png](index_files/index_32_0.png)
+
 
 Very cool! That visualization contains _a lot_ of information, and it does it in a way that is easy to interpret and understand. Best of all, it didn't take much work on our part--all we had to do was tell the function the name of the column to use for the x axis, the name of the column to use for the y axis, and the name of the variable to condition on, as denoted by the two different colors. 
 
@@ -144,6 +428,17 @@ Run the cell below to see an example, and see if you can figure out how the code
 sns.lmplot(x="total_bill", y="tip", hue="smoker",
            col="time", row="sex", data=tips)
 ```
+
+
+```python
+# __SOLUTION__ 
+sns.lmplot(x="total_bill", y="tip", hue="smoker",
+           col="time", row="sex", data=tips)
+```
+
+
+![png](index_files/index_35_0.png)
+
 
 ## Summary
 
