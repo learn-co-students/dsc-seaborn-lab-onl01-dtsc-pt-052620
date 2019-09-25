@@ -9,24 +9,35 @@ In this lab, we'll get some practice working with a second, more advanced visual
 
 You will be able to:
 
-* Understand the relationship between Seaborn and Matplotlib, and when to use each 
-* Create basic visualizations with Seaborn
+* Create visualizations using Seaborn
 
 ## Getting Started
 
 In this lab, we'll explore several different kinds of visualizations we can create with Seaborn. Seaborn is built on top of Matplotlib, so you'll find that it will feel quite familiar. 
 
-Let's get started by importing some things and creating a toy dataset to work with for our first visualization. 
+Let's get started by importing the required packages and creating a toy dataset to work with for our first visualization. 
 
 
 In the cell below: 
 
-* Import `numpy` and set the standard alias of `np`
-* Import `seaborn` and set the standard alias of `sns`
-* Set `%matplotlib inline` so that our visualizations appear in the notebook, and not as separate files
+* Import `numpy` and set the standard alias of `np` 
+* Import `matplotlib`'s `pyplot` and set the standard alias of `plt` 
+* Import `seaborn` and set the standard alias of `sns` 
+* Set `%matplotlib inline` so that our visualizations appear in the notebook, and not as separate files 
 
 
 ```python
+# Import numpy
+
+
+# Import seaborn
+
+
+# Import matplotlib
+
+
+# Make sure plots appear inline
+
 
 ```
 
@@ -34,12 +45,12 @@ In the cell below:
 ```python
 # __SOLUTION__ 
 import numpy as np
-import seaborn as sns
 import matplotlib.pyplot as plt
+import seaborn as sns
 %matplotlib inline
 ```
 
-Great! Now, run the cell below to create a sample dataset. 
+Great! Now, run the cell below to create a sample dataset: 
 
 
 ```python
@@ -58,10 +69,11 @@ We'll start off by creating a boxplot with the dataset we just created so that w
 
 In the cell below:
 
-* Create a `boxplot` and pass in the parameter `data=data`. Store the object returned in the variable `boxplot`
+* Create a boxplot using Seaborn and pass in the parameter `data=data`. Store the object returned in the variable `boxplot`
 
 
 ```python
+# Create a boxplot
 boxplot = None
 ```
 
@@ -69,7 +81,6 @@ boxplot = None
 ```python
 # __SOLUTION__ 
 boxplot = sns.boxplot(data=data)
-
 ```
 
 
@@ -88,7 +99,10 @@ In the cell below:
 
 
 ```python
+# Copy and paste the code to recreate the boxplot
 boxplot = None
+
+# Set the labels
 
 ```
 
@@ -122,6 +136,7 @@ In the cell below:
 
 
 ```python
+# Recreate the boxplot and add labels in the same line of code
 
 ```
 
@@ -148,15 +163,20 @@ Great! As you can see, Seaborn is a pretty easy library to work with. It also ha
 
 ### Changing Style and Context
 
-One of the main reasons Data Scientists love Seaborn is because the visualizations it creates are just plain prettier than those made by matplotlib. Seaborn makes it very simple to style our visualizations--all we need to do is use the `set_style()` method!
+One of the main reasons Data Scientists love Seaborn is because the visualizations it creates are just plain prettier than those made by matplotlib. Seaborn makes it very simple to style our visualizations -- all we need to do is use the `set_style()` function!
 
 In the cell below:
 
-* Call Seaborn's `set_style()` method and pass in the string `'darkgrid'`. 
+* Call Seaborn's `set_style()` function and pass in the string `'darkgrid'`. 
 * Recreate the labeled boxplot that we made in the cell above. 
 
 
 ```python
+# Set style
+
+
+# Recreate the boxplot
+
 
 ```
 
@@ -180,19 +200,24 @@ sns.boxplot(data=data).set(xlabel = "X Label", ylabel='Y Label', title='Example 
 ![png](index_files/index_17_1.png)
 
 
-That's much easier to read! There are several different styles that we can choose from. To see examples of the different styles we can use, check out the [documentation](https://seaborn.pydata.org/tutorial/aesthetics.html) for controlling figure aesthetics.
+That's much easier to read! There are several different styles that we can choose from. To see examples of the different styles and controlling figure aesthetics, check out the [documentation](https://seaborn.pydata.org/tutorial/aesthetics.html).
 
-Before we move on, let's make one more change. While the plot looks much better now, the size of the text for ticks and axis labels so small that it would be hard for people to read it unless they're right in front of the monitor--that's a problem, if the visualizations are going to be used in something like a tech talk or presentation!
+Before we move on, let's make one more change. While the plot looks much better now, the size of the text for ticks and axis labels are so small that it would be hard for people to read it unless they're right in front of the monitor -- that's a problem, if the visualizations are going to be used in something like a tech talk or presentation!
 
-For this reason, we can also set the context, using the--you guessed it--`set_context()` method!
+For this reason, we can also set the context, using the -- you guessed it -- `set_context()` function!
 
 In the cell below:
 
-* Call Seaborn's `set_context()` method and pass in the string `'poster'`.
-* Recreate the labeled boxplot that we made in the cell above.
+* Call Seaborn's `set_context()` function and pass in the string `'poster'` 
+* Recreate the labeled boxplot that we made in the cell above 
 
 
 ```python
+# Set context
+
+
+# Recreate the boxplot
+
 
 ```
 
@@ -220,7 +245,7 @@ Much better! That's much more readable. From smallest to largest, the different 
 
 ### A  Quick Note on Contexts and Styles
 
-When you call `set_context` or `set_style`, you're setting a global parameter that will apply to all future plots you create during this session. Any visualizations you have already created will not change--however, they will change if you rerun the cell that created them! 
+When you call `set_context()` or `set_style()`, you're setting a global parameter that will apply to all future plots you create during this session. Any visualizations you have already created will not change -- however, they will change if you rerun the cell that created them! 
 
 Let's change our context back to `'notebook'` so that the next visualizations we create don't look too big. 
 
@@ -228,6 +253,7 @@ In the cell below, change the context back to `'notebook'`.
 
 
 ```python
+# Change the context back to 'notebook'
 
 ```
 
@@ -243,14 +269,15 @@ One awesome feature of Seaborn is the ability to quickly and easily create advan
 
 ### Regression Lines with Confidence Intervals
 
-There are also several different types of regression plots Seaborn makes available for this purpose. For this example, we're going to create an advanced regression plot that also visualizes the confidence interval for our regression line. We'll even have the visualization **_condition on_** a 3rd variable, to show how the regression lines differ for each group, depending on the value of the 3rd variable. 
+There are also several different types of regression plots `seaborn` makes available for this purpose. For this example, we're going to create an advanced regression plot that also visualizes the confidence interval for our regression line. We'll even have the visualization **_condition on_** a third variable, to show how the regression lines differ for each group, depending on the value of the third variable. 
 
-For this visualization, we'll need a more advanced dataset than the example we created and used above. Luckily, Seaborn comes with some preloaded datasets. We can see the names of all the datasets by calling Seaborn's `get_dataset_names()` method. 
+For this visualization, we'll need a more advanced dataset than the example we created and used above. Luckily, Seaborn comes with some preloaded datasets. We can see the names of all the datasets by calling Seaborn's `get_dataset_names()` function. 
 
-Do this now in the cell below.
+Do this now in the cell below: 
 
 
 ```python
+# Print the names of all the datasets
 
 ```
 
@@ -288,13 +315,16 @@ sns.get_dataset_names()
 
 
 
-Great! For the reamainder of this notebook, we'll use the `'tips'` dataset. We can get this dataset by calling Seaborn's `load_dataset()` method and passing in the string `'tips'`. Seaborn is even considerate enough to return the dataset as a pandas DataFrame!
+Great! For the remainder of this notebook, we'll use the `'tips'` dataset. We can get this dataset by calling Seaborn's `load_dataset()` function and passing in the string `'tips'`. Seaborn is even considerate enough to return the dataset as a pandas DataFrame!
 
-In the cell below, get the tips dataset and store it in the variable `tips`. Then, display the head of the DataFrame so we can see what we're working with. 
+In the cell below, get the `'tips'` dataset and store it in the variable `tips`. Then, display the head of the DataFrame so we can see what we're working with. 
 
 
 ```python
+# Import the tips dataset
 tips = None
+
+# Print the head of tips
 
 ```
 
@@ -392,11 +422,11 @@ tips.head()
 
 
 
-Now that we have our dataset, we can create our regression plot. There are several kinds of regression plots we can use. For this example, we'll use the `lmplot` function. 
+Now that we have our dataset, we can create our regression plot. There are several kinds of regression plots we can use. For this example, we'll use the `lmplot()` function. 
 
 In the cell below: 
 
-* Call Seaborn's `lmplot` function and pass in the following arguments:
+* Call Seaborn's `lmplot()` function and pass in the following arguments:
     * `x='total_bill'`
     * `y='tip'`
     * `hue='smoker'`
@@ -404,6 +434,7 @@ In the cell below:
 
 
 ```python
+# Create the regression plot
 
 ```
 
@@ -417,7 +448,7 @@ sns.lmplot(x="total_bill", y="tip", hue="smoker", data=tips);
 ![png](index_files/index_32_0.png)
 
 
-Very cool! That visualization contains _a lot_ of information, and it does it in a way that is easy to interpret and understand. Best of all, it didn't take much work on our part--all we had to do was tell the function the name of the column to use for the x axis, the name of the column to use for the y axis, and the name of the variable to condition on, as denoted by the two different colors. 
+Very cool! That visualization contains _a lot_ of information, and it does it in a way that is easy to interpret and understand. Best of all, it didn't take much work on our part. All we had to do was tell the function the name of the column to use for the x-axis, the name of the column to use for the y-axis, and the name of the variable to condition on, as denoted by the two different colors. 
 
 If we want to get even more ambitious, we can create mutiple subplots by using the `row=` and `column=` parameters, as well! 
 
@@ -442,4 +473,4 @@ sns.lmplot(x="total_bill", y="tip", hue="smoker",
 
 ## Summary
 
-In this lab, we explored the **_Seaborn_** library, and explored the sorts of data visualizations we can create with it!
+In this lab, you explored the **_Seaborn_** library, and explored the sorts of data visualizations you can create with it!
