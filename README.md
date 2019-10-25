@@ -9,8 +9,7 @@ In this lab, we'll get some practice working with a second, more advanced visual
 
 You will be able to:
 
-* Understand the relationship between Seaborn and Matplotlib, and when to use each 
-* Create basic visualizations with Seaborn
+* Construct plots with Seaborn using its pre-built functionality
 
 ## Getting Started
 
@@ -27,7 +26,7 @@ In the cell below:
 
 
 ```python
-
+# Your code here
 ```
 
 
@@ -122,11 +121,6 @@ In the cell below:
 
 
 ```python
-
-```
-
-
-```python
 # __SOLUTION__ 
 sns.boxplot(data=data).set(xlabel = "X Label", ylabel='Y Label', title='Example Boxplot')
 ```
@@ -141,7 +135,7 @@ sns.boxplot(data=data).set(xlabel = "X Label", ylabel='Y Label', title='Example 
 
 
 
-![png](index_files/index_14_1.png)
+![png](index_files/index_13_1.png)
 
 
 Great! As you can see, Seaborn is a pretty easy library to work with. It also has very detailed and easy-to-follow documentation, complete with a ton of examples and tutorials. If you're ever unsure of how to build something, don't be afraid to look at the [Seaborn Documentation](https://seaborn.pydata.org/), or Google!
@@ -157,7 +151,7 @@ In the cell below:
 
 
 ```python
-
+# Your code here
 ```
 
 
@@ -177,7 +171,7 @@ sns.boxplot(data=data).set(xlabel = "X Label", ylabel='Y Label', title='Example 
 
 
 
-![png](index_files/index_17_1.png)
+![png](index_files/index_16_1.png)
 
 
 That's much easier to read! There are several different styles that we can choose from. To see examples of the different styles we can use, check out the [documentation](https://seaborn.pydata.org/tutorial/aesthetics.html) for controlling figure aesthetics.
@@ -193,7 +187,7 @@ In the cell below:
 
 
 ```python
-
+# Your code here
 ```
 
 
@@ -213,7 +207,7 @@ sns.boxplot(data=data).set(xlabel = "X Label", ylabel='Y Label', title='Example 
 
 
 
-![png](index_files/index_20_1.png)
+![png](index_files/index_19_1.png)
 
 
 Much better! That's much more readable. From smallest to largest, the different context settings we can use are `'paper'`, `'notebook'`, `'talk'`, and `'poster'`. 
@@ -228,7 +222,7 @@ In the cell below, change the context back to `'notebook'`.
 
 
 ```python
-
+# Your code here
 ```
 
 
@@ -251,7 +245,7 @@ Do this now in the cell below.
 
 
 ```python
-
+# Your code here
 ```
 
 
@@ -404,7 +398,7 @@ In the cell below:
 
 
 ```python
-
+# Your code here
 ```
 
 
@@ -414,7 +408,7 @@ sns.lmplot(x="total_bill", y="tip", hue="smoker", data=tips);
 ```
 
 
-![png](index_files/index_32_0.png)
+![png](index_files/index_31_0.png)
 
 
 Very cool! That visualization contains _a lot_ of information, and it does it in a way that is easy to interpret and understand. Best of all, it didn't take much work on our part--all we had to do was tell the function the name of the column to use for the x axis, the name of the column to use for the y axis, and the name of the variable to condition on, as denoted by the two different colors. 
@@ -437,7 +431,7 @@ sns.lmplot(x="total_bill", y="tip", hue="smoker",
 ```
 
 
-![png](index_files/index_35_0.png)
+![png](index_files/index_34_0.png)
 
 
 ## Summary
