@@ -9,8 +9,7 @@ In this lab, we'll get some practice working with a second, more advanced visual
 
 You will be able to:
 
-* Understand the relationship between Seaborn and Matplotlib, and when to use each 
-* Create basic visualizations with Seaborn
+* Construct plots with Seaborn using its pre-built functionality
 
 ## Getting Started
 
