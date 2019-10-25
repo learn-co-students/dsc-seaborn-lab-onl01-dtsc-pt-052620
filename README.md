@@ -9,8 +9,7 @@ In this lab, we'll get some practice working with a second, more advanced visual
 
 You will be able to:
 
-* Understand the relationship between Seaborn and Matplotlib, and when to use each 
-* Create basic visualizations with Seaborn
+* Construct plots with Seaborn using its pre-built functionality
 
 ## Getting Started
 
@@ -24,6 +23,11 @@ In the cell below:
 * Import `numpy` and set the standard alias of `np`
 * Import `seaborn` and set the standard alias of `sns`
 * Set `%matplotlib inline` so that our visualizations appear in the notebook, and not as separate files
+
+
+```python
+# Your code here
+```
 
 Great! Now, run the cell below to create a sample dataset. 
 
@@ -80,6 +84,11 @@ In the cell below:
 * Call Seaborn's `set_style()` method and pass in the string `'darkgrid'`. 
 * Recreate the labeled boxplot that we made in the cell above. 
 
+
+```python
+# Your code here
+```
+
 That's much easier to read! There are several different styles that we can choose from. To see examples of the different styles we can use, check out the [documentation](https://seaborn.pydata.org/tutorial/aesthetics.html) for controlling figure aesthetics.
 
 Before we move on, let's make one more change. While the plot looks much better now, the size of the text for ticks and axis labels so small that it would be hard for people to read it unless they're right in front of the monitor--that's a problem, if the visualizations are going to be used in something like a tech talk or presentation!
@@ -91,6 +100,11 @@ In the cell below:
 * Call Seaborn's `set_context()` method and pass in the string `'poster'`.
 * Recreate the labeled boxplot that we made in the cell above.
 
+
+```python
+# Your code here
+```
+
 Much better! That's much more readable. From smallest to largest, the different context settings we can use are `'paper'`, `'notebook'`, `'talk'`, and `'poster'`. 
 
 ### A  Quick Note on Contexts and Styles
@@ -100,6 +114,11 @@ When you call `set_context` or `set_style`, you're setting a global parameter th
 Let's change our context back to `'notebook'` so that the next visualizations we create don't look too big. 
 
 In the cell below, change the context back to `'notebook'`.
+
+
+```python
+# Your code here
+```
 
 ## More Advanced Visualizations
 
@@ -112,6 +131,11 @@ There are also several different types of regression plots Seaborn makes availab
 For this visualization, we'll need a more advanced dataset than the example we created and used above. Luckily, Seaborn comes with some preloaded datasets. We can see the names of all the datasets by calling Seaborn's `get_dataset_names()` method. 
 
 Do this now in the cell below.
+
+
+```python
+# Your code here
+```
 
 Great! For the reamainder of this notebook, we'll use the `'tips'` dataset. We can get this dataset by calling Seaborn's `load_dataset()` method and passing in the string `'tips'`. Seaborn is even considerate enough to return the dataset as a pandas DataFrame!
 
@@ -132,6 +156,11 @@ In the cell below:
     * `y='tip'`
     * `hue='smoker'`
     * `data= tips`
+
+
+```python
+# Your code here
+```
 
 Very cool! That visualization contains _a lot_ of information, and it does it in a way that is easy to interpret and understand. Best of all, it didn't take much work on our part--all we had to do was tell the function the name of the column to use for the x axis, the name of the column to use for the y axis, and the name of the variable to condition on, as denoted by the two different colors. 
 
